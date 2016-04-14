@@ -10,9 +10,9 @@
 
 # 前言
 
-目前Java Web的主流开发技术主要集中在Struts 2,Spring, hibernate,ibatis（已改名mybatis）,大多数企业开发都是基于SSH[1]（Structs,Spring,hibernate）或者SSI[2]（Structs,Spring,ibatis）三大框架的整合封装开发解决方案。Spring等框架技术经过这么多年的市场验证，足以见得这些技术的成熟。企业使用这些技术整合封装出企业风格的开发规范，web开发由这些成熟的技术作为底层驱动，企业可以将精力更多的投放在具体业务的开发上面，避免了大量不可预见性的系统和安全漏洞。这种开发解决方案解决了web开发中的表现层，业务层，持久层的问题。但是各种框架侧重点不同，例如spring框架追求灵活构建项目，忽视了软件快速开发的重要性从而可能导致项目开发延期，开发成本增大等问题。还有一点是这些技术都是比较难上手的，学习成本较高。
+目前Java Web的主流开发技术主要集中在Struts 2,Spring, hibernate,ibatis（已改名mybatis）,大多数企业开发都是基于SSH[1]（Structs,Spring,hibernate）或者SSI（Structs,Spring,ibatis）三大框架的整合封装开发解决方案。Spring等框架技术经过这么多年的市场验证，足以见得这些技术的成熟。企业使用这些技术整合封装出企业风格的开发规范，web开发由这些成熟的技术作为底层驱动，企业可以将精力更多的投放在具体业务的开发上面，避免了大量不可预见性的系统和安全漏洞。这种开发解决方案解决了web开发中的表现层，业务层，持久层的问题。但是各种框架侧重点不同，例如spring框架追求灵活构建项目，忽视了软件快速开发的重要性从而可能导致项目开发延期，开发成本增大等问题。还有一点是这些技术都是比较难上手的，学习成本较高。
 
-现在使用最流行的表现层框架[3]当属Spring MVC, Spring MVC 分离了控制器、模型对象、分派器以及处理程序对象的角色，是一款实现了完全基于MVC模式的框架。而该课题的研究，关于表现层这一块，实现类似Spring MVC的基础上，研究实现更多的常用操作，比如Request上下文动态配置，国际化全局支持，Session快捷操作等。课题研究实现了一种路由，可以根据URL请求匹配对应的控制器中的操作。
+现在使用最流行的表现层框架当属Spring MVC, Spring MVC 分离了控制器、模型对象、分派器以及处理程序对象的角色，是一款实现了完全基于MVC模式的框架。而该课题的研究，关于表现层这一块，实现类似Spring MVC的基础上，研究实现更多的常用操作，比如Request上下文动态配置，国际化全局支持，Session快捷操作等。课题研究实现了一种路由，可以根据URL请求匹配对应的控制器中的操作。
 
 业务层流行的框架也非常多，不同的项目业务也是千变万化的，这些业务的逻辑处理需要用到各种不同的组件，面对各种组件需求，业务层领域中的Spring框架，将不同的需求组件自动实例化，开发者只要配置中配置实例的接口，就能直接使用这些实例，它的简单性、可测试性和松耦合性受到广大开发者的喜爱。
 
@@ -195,13 +195,13 @@ public interface Lang {
 }
 ````
 框架层和应用层可以很方便的调用Lang接口，对语言进行支持。
-
+````
 public static final String DEFAULT_LANGUAGE = "ZH_CN";
-
+````
 I18n的默认配置项只有一个，配置DEFAULT_LANGUAGE系统会对使用Lang的语言进行翻译。
-
+````
 private static Lang lang = Language.getInstance();
-
+````
 获取翻译结果使用L(String key)，对请求下文进行文本翻译使用L(String key, String value)。
 
 框架会在初始化时加载翻译信息，使用的是一种静态化方式，这样应用层能够很方便的调用I18n功能。这样设计保证了I18n的可用性和低耦合性。
@@ -209,9 +209,9 @@ private static Lang lang = Language.getInstance();
 ## 2.6 logging日志
 
 YoioJava的logging日志是借鉴开源持久层框架Mybatis的Ioc(控制反转)设计思想，这种思想是Log层提供统一接口Log，Log通过LogFactory获取实例。这样框架整体能够有一个统一的Log接口，在框架的任何地方或者应用层的任何地方，只需要通过：
-
+````
 private static final Log log = LogFactory.getLog(类.class);
-
+````
 获取实例进行log操作。常用的log工具有log4j,commoms log,jdbc log等，这些工具都会有一个实现Log接口的具体实现在框架中。LogFactory是实现Ioc思想的关键。
 
 LogFactory的静态语句块中使用对框架提供的每个log工具实例进行尝试实现，尝试实现有一个优先级，根据静态语句块中的顺序。当尝试实现时会占用线程锁，只有当该尝试实现走完才会进行下一个实现，直到获取了一个有效实例。
@@ -233,9 +233,9 @@ YoioJava Controller控制器依赖于Router对请求的分发。YoioJava对控�
 应用层模块化是将一个应用，分成若干个模块，每个模块独立互不干扰，由应用整体调配。模块化开发是应用模块化后，开发针对单一的模块进行实现，尽量减少对其他模块的依赖。这种模式能够有效的降低应用的耦合度，应用各组件复用性大大增强，组件移植成本低。
 
 YoioJava通过上面的三种分层结构，使模块化开发非常方便。
-
+````
 public static final String APP_MODULE = "Yoio,UserCenter,Home";
-
+````
 通过配置app_module,给应用分模块，访问路由需要访问模块名后才能访问对应模块下的控制器。能够对模块有个标准的规格限制。能够有效对应用进行分模块。
 
 ## 3.2模型
@@ -254,15 +254,11 @@ public class BaseDao {
 
 ​	private Database db = DatabaseFactory.getDatabase();
 
-
-
 ​	public Database setTableName(String tablename) {
 
 ​		return db.setTableName(tablename);
 
 ​	}
-
-
 
 ​	protected Database getDatabase() {
 
@@ -285,8 +281,6 @@ View实体提供了View接口。
 public interface View {
 
 ​	void assign(String alis, Object value);
-
-
 
 ​	void render();
 
@@ -438,7 +432,7 @@ public class Config {
 
 }
 ````
-这样系统的配置项就配置好了，主要是配置注册Admin模块和数据库连接池策略和数据库连接信息。****
+这样系统的配置项就配置好了，主要是配置注册Admin模块和数据库连接池策略和数据库连接信息。
 
 在com.application.admin.controller包下创建UserAdminController.java。
 ````

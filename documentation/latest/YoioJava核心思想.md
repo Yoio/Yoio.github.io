@@ -127,7 +127,7 @@ Persistence持久层Cache在YoioJava中有两种方式，一种是全局式的�
 YoioJava遵循一个惯例配置思想，内置了一个惯例配置文件com.yoiojava.globle.config包下的 Convention.java，里面按照常用配置对整体框架及应用进行默认配置，对应应用项目的配置文件，只需要配置和惯例配置不同的或者新增的配置参数，如果你完全采用默认配置，甚至可以不需要定义任何配置文件。惯例配置文件会被系统自动加载，无需在项目中进行加载。
 
 Configuration提供一个通用Config接口。
-
+````
 public interface Config {
 
 
@@ -143,7 +143,7 @@ public interface Config {
 ​	void loadConfigFile(String file);
 
 }
-
+````
 ConfigurationImpl为Config接口实现，全局配置的实例。
 
 loadConfigFile(String file)根据传入后缀名加载配置文件，暂时只支持java和properties配置文件。
@@ -157,7 +157,7 @@ Interceptor拦截器[8]是YoioJava核心组件之一，同是YoioJava AOP思想�
 ​	图8 YoioJava Interceptor 流程
 
 ​	由图8可以看到框架在进行控制器方法调用时会首先扫描这个控制器的所有方法，如果某个方法带有注解@Before，则首先执行带注解的方法，再执行调用方法。（@After是首先执行调用方法，再执行注解方法）。
-
+````
 @Retention(RetentionPolicy.RUNTIME)
 
 @Target(ElementType.METHOD)
@@ -167,7 +167,7 @@ public @interface Before {
 ​	Class<?> value() default DefaultHandlerInterceptor.class;
 
 }
-
+````
 ​	注解@Before会有一个默认Interceptor，DefaultHandlerInterceptor实现接口AsyncInterceptor，是Interceptor提供的通用接口。
 
 ![](assets/9.png) 
@@ -179,7 +179,7 @@ public @interface Before {
 ## 2.5 I18n国际化支持
 
 I18n国际化支持是从框架层开始支持，基于YoioJava的应用可以很方便的集成框架的I18n特性。I18n提供一个通用接口Lang。
-
+````
 public interface Lang {
 
 ​	void L(String key, String value);
@@ -193,7 +193,7 @@ public interface Lang {
 ​	void loadLangFile(String file);
 
 }
-
+````
 框架层和应用层可以很方便的调用Lang接口，对语言进行支持。
 
 public static final String DEFAULT_LANGUAGE = "ZH_CN";
@@ -249,7 +249,7 @@ YoioJava Model是对持久层的具体封装。
 ​	由图10可以看到YoioJava Model的大致实现结构。Model类继承BaseDao类，BaseDao类是由Database接口组合成，拥有Database的所有操作。通过类的继承传递Database接口的操作给Model类。
 
 Model继承BaseDao,BaseDao有个getDatabase()方法提供数据库Database接口，Model可以通过Database接口对数据库进行操作。
-
+````
 public class BaseDao {
 
 ​	private Database db = DatabaseFactory.getDatabase();
@@ -271,17 +271,17 @@ public class BaseDao {
 ​	}
 
 }
-
+````
 YoioJava实现了ActiveRecord模式[9]的ORM模型,采用了非标准的ORM模型,表映射到类，类映射到YoioJava数据元。最大的特点是使用方便，以达到敏捷开发的目的。
-
+````
 public class User extends Model<User> {}
-
+````
 上面根据数据库的User表创建User类简单继承Model，User立即拥有了操作数据库的众多方法。基于ActiveRecord的Model不需要根据数据库字段定义对应java属性，不需要getter、setter方法，不需要配置。
 
 ## 3.3视图
 
 View实体提供了View接口。
-
+````
 public interface View {
 
 ​	void assign(String alis, Object value);
@@ -291,7 +291,7 @@ public interface View {
 ​	void render();
 
 }
-
+````
 View层根据控制器指令对模板进行渲染输出。assign(String alis, Object value)是对模板进行数据映射，模板通过${alis}对赋值的数据进行渲染输出。render()是渲染指令。控制器中的操作使用render()，View层会到WEB-INF下找到对应模板进行渲染然后输出到页面上。
 
 # 4 框架的功能特性
@@ -343,7 +343,7 @@ YoioJava从架构层面对整体框架的高效性进行把握。主要从两个
 本小节使用YoioJava框架开发一个CURD的应用系统UserAdmin来验证框架的可行性。本系统简单的实现了对用户基本信息的增、删、改、查管理。
 
 YoioJava入口采用单一入口模式，所以首先在项目的web.xml中指定YoioJava的入口。
-
+````
 <!-- 项目统一入口 -->
 
 ​	<servlet>
@@ -371,7 +371,7 @@ YoioJava入口采用单一入口模式，所以首先在项目的web.xml中指�
 ​		<listener-class>com.yoiojava.listener.LoaderListener</listener-class>
 
 ​	</listener>
-
+````
 使用Mysql数据，在数据库Yoio中创建一张yoio_users表。表结构如下表。
 
 表1 数据库yoio_users表
@@ -385,11 +385,11 @@ YoioJava入口采用单一入口模式，所以首先在项目的web.xml中指�
 | Status   | Char(1)     | NOT NULL | 账号状态 |
 
 在com.application.admin.model包下根据数据库表名创建Users表的模型User.java继承类Model。
-
-public class Users extends Model<Users> {}****
-
+````
+public class Users extends Model<Users> {}
+````
 在com.application.config包下创建Config.java。
-
+````
 public class Config {
 
 ​	//配置项目模块
@@ -437,21 +437,17 @@ public class Config {
 ​	public static final String DB_PREFIX = "yoio_";
 
 }
-
+````
 这样系统的配置项就配置好了，主要是配置注册Admin模块和数据库连接池策略和数据库连接信息。****
 
 在com.application.admin.controller包下创建UserAdminController.java。
-
+````
 public class UserAdminController extends Controller {
 
 ​	/**
-
 ​	 * 获取所有用户
-
 ​	 * 
-
 ​	 * @author Yoio<Yoio@3cto.net>
-
 ​	 */
 
 ​	public void listUser() {
@@ -464,16 +460,10 @@ public class UserAdminController extends Controller {
 
 ​	}
 
-
-
 ​	/**
-
 ​	 * 新增一个用户
-
 ​	 * 
-
 ​	 * @author Yoio<Yoio@3cto.net>
-
 ​	 */
 
 ​	public void addUser() {
@@ -494,16 +484,9 @@ public class UserAdminController extends Controller {
 
 ​	}
 
-
-
 ​	/**
-
 ​	 * 根据编号删除一个用户
-
-​	 * 
-
 ​	 * @author Yoio<Yoio@3cto.net>
-
 ​	 */
 
 ​	public void delUser() {
@@ -516,16 +499,10 @@ public class UserAdminController extends Controller {
 
 ​	}
 
-
-
 ​	/**
-
 ​	 * 更新用户信息
-
 ​	 * 
-
 ​	 * @author Yoio<Yoio@3cto.net>
-
 ​	 */
 
 ​	public void saveUser() {
@@ -543,7 +520,7 @@ public class UserAdminController extends Controller {
 ​	}
 
 }
-
+````
 完成上面Controller的开发后，该应用系统基本上就开发完成了。
 
 从上面可以看出，代码编写很少，结构清晰，配置简单，只是配置数据库连接相关参数。很快就完成了一个应用开发。

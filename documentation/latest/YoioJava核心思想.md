@@ -24,7 +24,7 @@
 
 YoioJava框架基础为MVC结构，很好的将应用程序的逻辑层和表现层进行分离。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsBD2.tmp.jpg) 
+![](assets/1.png) 
 
 图1 YoioJava的整体架构流程图 
 

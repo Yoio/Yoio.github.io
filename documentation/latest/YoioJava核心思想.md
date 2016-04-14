@@ -130,15 +130,9 @@ Configuration提供一个通用Config接口。
 ````
 public interface Config {
 
-
-
 ​	void C(String key, Object value);
 
-
-
 ​	Object C(String key);
-
-
 
 ​	void loadConfigFile(String file);
 
@@ -184,11 +178,7 @@ public interface Lang {
 
 ​	void L(String key, String value);
 
-
-
 ​	String L(String key);
-
-
 
 ​	void loadLangFile(String file);
 
@@ -355,7 +345,6 @@ YoioJava入口采用单一入口模式，所以首先在项目的web.xml中指�
 ​		<url-pattern>/Admin/*</url-pattern>
 
 ​	</servlet-mapping>
-
 
 
 ​	<!-- YoioJava默认初始化加载监听器 -->

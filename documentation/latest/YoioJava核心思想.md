@@ -40,7 +40,7 @@ YoioJava是一款基于Java编程语言的Web框架，Java是一门强数据类�
 
 目前主流的持久层框架hibernate,Mybatis都是一种ORM类框架，基于ORM的持久层框架有一个特点是对对象的需求，Java中使用最广泛的基础对象实体莫过于Javabean,POJO。ORM将数据映射为传统java实体对象，而大多数WEB应用关注点是数据本身，而并非java对象。例如WEB应用请求当前用户信息，该用户信息在数据库表user中储存。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsBD3.tmp.png) 
+![](assets/2.png) 
 
 图2 传统ORM框架流程
 
@@ -48,7 +48,7 @@ YoioJava是一款基于Java编程语言的Web框架，Java是一门强数据类�
 
 前面提到的这种Java对象不是WEB所关注的，所以在YoioJava中数据模型的设计更加贴近数据本身，基本数据元为key->value。也是一种类JSON储存表现格式。让数据类型变得更简单是YoioJava实现敏捷开发[5]的基础。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsBD4.tmp.png) 
+![](assets/3.png) 
 
 图3 YoioJava两种数据实体
 
@@ -62,7 +62,7 @@ YoioJava是一款基于Java编程语言的Web框架，Java是一门强数据类�
 
 首先介绍的是YoioJava核心组件Router路由，主要功能是对请求进行有效管理和分发映射到对应控制器。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsBE5.tmp.png)  
+![](assets/4.png)  
 
 图4 YoioJava Router UML模型 
 
@@ -82,7 +82,7 @@ WebApplication是框架应用引擎接口，不属于Router。最终的Router处
 
 WebApplicationEngine对应用启动，根据路由信息进行实际操作，映射到Controller。Structs 2框架通过J2EE体系中的Filter对请求进行分发，Spring MVC是通过Java反射技术对请求进行分发，YoioJava与Spring MVC一样是用反射技术对请求进行分发映射到对应Module下的Controller下的Action[6]。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsBF5.tmp.png) 
+![](assets/5.png) 
 
 图5 WebApplicationEngine在YoioJava中的位置
 
@@ -98,7 +98,7 @@ WebApplicationEngine对应用启动，根据路由信息进行实际操作，映
 
 接下来介绍YoioJava核心组件Persistence持久层[7]，Persistence主要提供数据库连接池，数据库事务管理，各类型数据库驱动等服务。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsBF6.tmp.png) 
+![](assets/6.png) 
 
 图6 YoioJava Persistence UML模型
 
@@ -116,7 +116,7 @@ PersistenceProvider接口是持久层操作的接口，提供数据库Connection
 
 Persistence持久层Cache在YoioJava中有两种方式，一种是全局式的缓存，该种方式是在配置中配置DB_CACHE设为true,系统会对所有的select语句进行结果缓存。另一种是在Model层操作是将Model实例调用cache(true)，则该语句会进行结果缓存。
 
- ![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsC07.tmp.jpg)
+ ![](assets/7.png)
 
 图7 YoioJava Persistence Cache流程图
 
@@ -152,7 +152,7 @@ loadConfigFile(String file)根据传入后缀名加载配置文件，暂时只�
 
 Interceptor拦截器[8]是YoioJava核心组件之一，同是YoioJava AOP思想的具体实现。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsC08.tmp.jpg) 
+![](assets/8.png) 
 
 ​	图8 YoioJava Interceptor 流程
 
@@ -170,7 +170,7 @@ public @interface Before {
 
 ​	注解@Before会有一个默认Interceptor，DefaultHandlerInterceptor实现接口AsyncInterceptor，是Interceptor提供的通用接口。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsC19.tmp.jpg) 
+![](assets/9.png) 
 
 图9 YoioJava Interceptor AOP
 
@@ -242,7 +242,7 @@ public static final String APP_MODULE = "Yoio,UserCenter,Home";
 
 YoioJava Model是对持久层的具体封装。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsC1A.tmp.jpg) 
+![](assets/10.png) 
 
 图10 YoioJava Model结构图
 
@@ -302,7 +302,7 @@ YoioJava从架构设计上对框架整体特性的把握，通过架构时对框
 
 YoioJava底层采用面向接口开发思想，各组件之间提供对外统一接口，接口实现由接口工厂通过全局配置提供接口实例。
 
- ![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsC2A.tmp.jpg)
+ ![](assets/11.png)
 
 图11 YoioJava底层接口模型 
 
@@ -558,7 +558,7 @@ YoioJava框架的测试主要分为两部分：功能的测试和性能的测试
 
 为检测系统在多用户，大数据量请求下系统能够正常持续运行。测试用例使用多个不同请求并发请求服务器。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsC3B.tmp.jpg) 
+![](assets/12.png) 
 
 图12 YoioJava 性能测试结果
 
@@ -568,7 +568,7 @@ YoioJava框架的测试主要分为两部分：功能的测试和性能的测试
 
 本次测试采用三组线程组，线程组1和3都使用2个线程，每个线程发送20000个请求，下图是测试结果图。
 
-![](file:///C:\Users\Yoio\AppData\Local\Temp\ksohtml\wpsC3C.tmp.jpg) 
+![](assets/13.png) 
 
 图13 YoioJava 并发功能测试结果
 

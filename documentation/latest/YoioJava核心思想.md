@@ -2,7 +2,7 @@
 
 :octocat:[YoioJava中文官网](http://yoiojava.com)
 
-**摘 要**：目前Java web的框架技术已经非常成熟，但是大多数框架都比较复杂，导致学习成本偏高，市场急需一款便于学习和快速开发应用的框架。论文研究了当前主流框架技术的基础上，遵循软件敏捷开发的思想，设计并实现了一个解决表现层，业务层，持久层问题的具有快速灵活开发特性的轻量级框架。命名为YoioJava。
+**摘 要**：目前Java web的框架技术已经非常成熟，但是大多数框架都比较复杂，导致学习成本偏高，市场急需一款便于学习和快速开发应用的框架。在研究了当前主流框架技术的基础上，遵循软件敏捷开发的思想，设计并实现了一个解决表现层，业务层，持久层问题的具有快速灵活开发特性的轻量级框架。命名为YoioJava。
 
 ​	YoioJava框架基于Http Servlet开发，底层采用面向接口设计思想，实现了组件的灵活管理和框架的良好扩展特性。使用YoioJava开发WEB应用，能够有弱类型编程语言的开发体验，同时拥有Java编程语言强大的处理能力，数据模型抛弃Java传统的JavaBean,POJO(Plain Ordinary Java Object)，侧重web友好的String,key->value数据模型。
 
@@ -10,7 +10,7 @@
 
 # 前言
 
-目前Java Web的主流开发技术主要集中在Struts 2,Spring, hibernate,ibatis（已改名mybatis）,大多数企业开发都是基于SSH[1]（Structs,Spring,hibernate）或者SSI（Structs,Spring,ibatis）三大框架的整合封装开发解决方案。Spring等框架技术经过这么多年的市场验证，足以见得这些技术的成熟。企业使用这些技术整合封装出企业风格的开发规范，web开发由这些成熟的技术作为底层驱动，企业可以将精力更多的投放在具体业务的开发上面，避免了大量不可预见性的系统和安全漏洞。这种开发解决方案解决了web开发中的表现层，业务层，持久层的问题。但是各种框架侧重点不同，例如spring框架追求灵活构建项目，忽视了软件快速开发的重要性从而可能导致项目开发延期，开发成本增大等问题。还有一点是这些技术都是比较难上手的，学习成本较高。
+目前Java Web的主流开发技术主要集中在Struts 2,Spring, hibernate,ibatis（已改名mybatis）,大多数企业开发都是基于SSH（Structs,Spring,hibernate）或者SSI（Structs,Spring,ibatis）三大框架的整合封装开发解决方案。Spring等框架技术经过这么多年的市场验证，足以见得这些技术的成熟。企业使用这些技术整合封装出企业风格的开发规范，web开发由这些成熟的技术作为底层驱动，企业可以将精力更多的投放在具体业务的开发上面，避免了大量不可预见性的系统和安全漏洞。这种开发解决方案解决了web开发中的表现层，业务层，持久层的问题。但是各种框架侧重点不同，例如spring框架追求灵活构建项目，忽视了软件快速开发的重要性从而可能导致项目开发延期，开发成本增大等问题。还有一点是这些技术都是比较难上手的，学习成本较高。
 
 现在使用最流行的表现层框架当属Spring MVC, Spring MVC 分离了控制器、模型对象、分派器以及处理程序对象的角色，是一款实现了完全基于MVC模式的框架。而该课题的研究，关于表现层这一块，实现类似Spring MVC的基础上，研究实现更多的常用操作，比如Request上下文动态配置，国际化全局支持，Session快捷操作等。课题研究实现了一种路由，可以根据URL请求匹配对应的控制器中的操作。
 
@@ -44,7 +44,7 @@ YoioJava是一款基于Java编程语言的Web框架，Java是一门强数据类�
 
 图2 传统ORM框架流程
 
-从图2可以看到ORM框架[4]将数据表映射成Java对象，在此过程中，编程人员需要对应数据库中的字段编写User的java类中各属性，也就是传统的Javabean，通过ORM将数据库数据一一映射到User对象，返回User对象，View层映射User对象，从对象中获取信息。
+从图2可以看到ORM框架将数据表映射成Java对象，在此过程中，编程人员需要对应数据库中的字段编写User的java类中各属性，也就是传统的Javabean，通过ORM将数据库数据一一映射到User对象，返回User对象，View层映射User对象，从对象中获取信息。
 
 前面提到的这种Java对象不是WEB所关注的，所以在YoioJava中数据模型的设计更加贴近数据本身，基本数据元为key->value。也是一种类JSON储存表现格式。让数据类型变得更简单是YoioJava实现敏捷开发[5]的基础。
 
@@ -80,7 +80,7 @@ Dispatcher组合context信息交给DispatcherMapperStrategy进行处理得到Pat
 
 WebApplication是框架应用引擎接口，不属于Router。最终的Router处理结果是由框架应用引擎来进行项目启动的。
 
-WebApplicationEngine对应用启动，根据路由信息进行实际操作，映射到Controller。Structs 2框架通过J2EE体系中的Filter对请求进行分发，Spring MVC是通过Java反射技术对请求进行分发，YoioJava与Spring MVC一样是用反射技术对请求进行分发映射到对应Module下的Controller下的Action[6]。
+WebApplicationEngine对应用启动，根据路由信息进行实际操作，映射到Controller。Structs 2框架通过J2EE体系中的Filter对请求进行分发，Spring MVC是通过Java反射技术对请求进行分发，YoioJava与Spring MVC一样是用反射技术对请求进行分发映射到对应Module下的Controller下的Action。
 
 ![](assets/5.png) 
 
@@ -88,15 +88,15 @@ WebApplicationEngine对应用启动，根据路由信息进行实际操作，映
 
 由图5可以看到，WebApplicationEngine属于框架层和应用层的一个桥接，onStartup()中捕获的异常包含属于WEB应用层异常，对于这里的异常处理机制分为下面几步处理。
 
-\1. 对异常进行控制台输出，这里的异常有持久层（数据库）异常，表现层异常，框架异常，第一步操作对所有异常进行打印到控制台方便管理员查看异常信息。
+1. 对异常进行控制台输出，这里的异常有持久层（数据库）异常，表现层异常，框架异常，第一步操作对所有异常进行打印到控制台方便管理员查看异常信息。
 
-\2. 获取配置项DEBUG，DEBUG模式下对页面输出无法找到模块，并输出异常信息到页面。运行模式下发送404 Not Found错误信息。
+2. 获取配置项DEBUG，DEBUG模式下对页面输出无法找到模块，并输出异常信息到页面。运行模式下发送404 Not Found错误信息。
 
 这样对异常处理主要目的是框架层和应用层桥接处发生的异常能够正确处理，对应用层的异常通过e.getMessage()捕获异常信息，应用层的异常可以根据配置调试模式输出到页面，这样可以不忽略异常和正确处理异常。
 
 ## 2.2 Persistence持久层
 
-接下来介绍YoioJava核心组件Persistence持久层[7]，Persistence主要提供数据库连接池，数据库事务管理，各类型数据库驱动等服务。
+接下来介绍YoioJava核心组件Persistence持久层，Persistence主要提供数据库连接池，数据库事务管理，各类型数据库驱动等服务。
 
 ![](assets/6.png) 
 
@@ -112,7 +112,7 @@ DataSourceLocale是对DataSourceStrategy提供的数据源进行静态化，这�
 
 PersistenceProvider是Persistence持久层的入口。
 
-PersistenceProvider接口是持久层操作的接口，提供数据库Connection和数据库操作的基础方法。BasicPersistenceHandler是PersistenceProvider接口的基本实现。****
+PersistenceProvider接口是持久层操作的接口，提供数据库Connection和数据库操作的基础方法。BasicPersistenceHandler是PersistenceProvider接口的基本实现。
 
 Persistence持久层Cache在YoioJava中有两种方式，一种是全局式的缓存，该种方式是在配置中配置DB_CACHE设为true,系统会对所有的select语句进行结果缓存。另一种是在Model层操作是将Model实例调用cache(true)，则该语句会进行结果缓存。
 
@@ -144,7 +144,7 @@ loadConfigFile(String file)根据传入后缀名加载配置文件，暂时只�
 
 ## 2.4 Interceptor拦截器
 
-Interceptor拦截器[8]是YoioJava核心组件之一，同是YoioJava AOP思想的具体实现。
+Interceptor拦截器是YoioJava核心组件之一，同是YoioJava AOP思想的具体实现。
 
 ![](assets/8.png) 
 
@@ -290,9 +290,9 @@ YoioJava底层采用面向接口开发思想，各组件之间提供对外统一
 
 图11 YoioJava底层接口模型 
 
-​	由图11可以看到YoioJava是通过对外提供接口的方式实现框架的低耦合[10]特性。YoioJava组件模块Cache，Persistence，Logging等各自提供一个接口，每个组件相对独立，同时在一个功能上需要使用不同组件，只需要定义他们的接口，从工厂中获取实例，就可以使用这些组件，这样各组件能够高度内聚。
+​	由图11可以看到YoioJava是通过对外提供接口的方式实现框架的低耦合特性。YoioJava组件模块Cache，Persistence，Logging等各自提供一个接口，每个组件相对独立，同时在一个功能上需要使用不同组件，只需要定义他们的接口，从工厂中获取实例，就可以使用这些组件，这样各组件能够高度内聚。
 
-YoioJava模块化[11]开发旨在支持WEB应用的模块化，随着项目越来越大，Web开发中会面临越来越“重”的问题，在项目开始阶段没有规划好的话，后续再添加功能时就会变得极其麻烦，不同的功能之间非常容易产生冲突，这时就需要模块化开发来解决这些问题。
+YoioJava模块化开发旨在支持WEB应用的模块化，随着项目越来越大，Web开发中会面临越来越“重”的问题，在项目开始阶段没有规划好的话，后续再添加功能时就会变得极其麻烦，不同的功能之间非常容易产生冲突，这时就需要模块化开发来解决这些问题。
 
 YoioJava模块化开发主要体现在Module,Controller,Action三层结构。通过Module对应用进行分层，将独立性较高的功能单独放在一个Module中进行开发，这样能够使WEB应用更加清晰，便于开发维护，同时也避免了各组件间的冲突。
 
@@ -320,7 +320,7 @@ YoioJava从架构层面对整体框架的高效性进行把握。主要从两个
 
 # 5 框架的应用开发和测试
 
-本节会使用YoioJava开发一个简单应用，阐述使用YoioJava的开发流程。同时会使用Apache Jmeter[12]对框架进行性能测试，证明YoioJava的实用性和有效性。
+本节会使用YoioJava开发一个简单应用，阐述使用YoioJava的开发流程。同时会使用Apache Jmeter对框架进行性能测试，证明YoioJava的实用性和有效性。
 
 ## 5.1 框架系统开发	
 

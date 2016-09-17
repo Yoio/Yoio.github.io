@@ -1,0 +1,488 @@
+@font-face{font-family: "PingFang";
+src: url('../fonts/PingFang.eot');
+src: url('../fonts/PingFang.eot') format('embedded-opentype'), 
+url('../fonts/PingFang.woff') format('woff'),
+ url('../fonts/PingFang.ttf') format('truetype'),
+  url('http://im.qq.com/macqq/fonts/PingFang.svg#PingFang20160914') format('svg');
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #7b7c7d
+}
+.typed-cursor {
+			opacity: 1;
+			-webkit-animation: blink 0.7s infinite;
+			-moz-animation: blink 0.7s infinite;
+			animation: blink 0.7s infinite;
+		}
+		@keyframes blink {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes blink {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@-moz-keyframes blink {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+
+
+body{
+	font:18px "PingFang SC","Helvetica Neue",Helvetica,"Lucida Grande","Luxi Sans",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Micro Hei Mono","WenQuanYi Zen Hei","WenQuanYi Zen Hei Mono",LiGothicMed, "helvetica neue", "hiragino sans gb", arial, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif;
+
+}
+a {
+    cursor: pointer;
+}
+pre{
+	border-radius: 8px;box-shadow: 0px 0px 6px 3px #ccc;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 48px;
+    margin: 0 0 34px;
+    padding: 0 30px;
+    text-align: center;
+}
+h3 {
+    font-size: 36px;
+    font-weight: lighter;
+}
+a, .md-def-url {
+    color: #990000;
+    text-decoration: none;
+}
+.wf{
+	font-family: "PingFang","Helvetica Neue",Helvetica,"Lucida Grande";
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+.active .pro-info .title, .active .pro-info .sub-title, .active .pro-info .down-btn, .active .pro-info .version {
+    -webkit-animation: fadeInDown 1000ms linear both;
+    -moz-animation: fadeInDown 1000ms linear both;
+     animation: fadeInDown 1000ms linear both; 
+}
+
+.active .pro-info .sub-title {
+    -webkit-animation-delay: .2s;
+    -moz-animation-delay: .2s;
+    animation-delay: .2s;
+}
+
+.mod-qqmac .pro-info .sub-title {
+    line-height: .8;
+    font-size: 48px;
+}
+
+	.header {
+			text-align: center;
+			padding-bottom: 8em;
+			background-color: #fbfbfb;
+			z-index: 20;
+			border-bottom: solid 1px #ddd;
+		}
+		.header .content-resizer {
+
+		}
+
+		.fullscreen {
+			height: 600px;
+			position: relative;
+		}
+		.content-resizer {
+			position: absolute;
+			width: 100%;
+			top: 200px;
+			min-height: 200px;
+		}
+		.slogon {
+			font-family: "Raleway", sans-serif;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 22px;
+			letter-spacing: 6px;
+			text-transform: uppercase;
+			color: #999;
+			text-align: center;
+		}
+		.slogon strong {
+			color: #555;
+			font-weight: bolder;
+		}
+		.jump-down {
+			margin-top: 4em;
+			line-height: 2em;
+			display: inline-block;
+			width: 4em;
+			cursor: pointer;
+			color: #555;
+		}
+		.header .menu {
+			margin-top: 2em;
+		}
+		.menu-a {
+			color: #555;
+			padding: 10px;
+			border: 1px solid #555;
+		}
+		.header .menu-a {
+			margin-left: 2em;
+			margin-right: 2em;
+		}
+		li {
+			display: block;
+		}
+		#feature {
+			left: 0px;
+			right: 0px;
+			background-color: white;
+			padding-bottom: 100px;
+		}
+		#contact a {
+			color: #eee;
+		}
+		section {
+			background-color: white;
+		}
+		.nav {
+			position: fixed;
+			width: 100%;
+			top: 0px;
+			height: 70px;
+			padding-top: 15px;
+			z-index: 10;
+			background-color: #fff;
+			border-bottom: 1px solid #eee;
+		}
+		.product-name,
+		.product-name a {
+			float: left;
+			font-family: 'Century Gothic', sans-serif;
+			font-size: 2em;
+			padding-left: 1em;
+		}
+		.nav .pure-menu-list {
+			float: right;
+			margin-bottom: 0;
+			padding-left: 0;
+			list-style: none;
+			margin-right: 1em;
+			display: inline-block;
+			max-width: 100%;
+			overflow-x: hidden;
+		}
+		#feature {
+			padding-top: 200px;
+			min-height:500px;
+		}
+		video {
+			max-width:560px;
+			height: auto;
+			width: 100%;
+		}
+		#theme {
+			padding-bottom: 80px;
+			padding-top: 80px;
+			height: 530px;
+		}
+		#download {
+			font-family: museo-slab, Georgia, "Times New Roman", Times, serif;
+			position: relative;
+			background-color: #f6f6f6;
+			color: #4d4d4d;
+			text-align: center;
+			overflow-y: hidden;
+			font-size: 14px;
+		}
+		.sub-group input,
+		.sub-group .button,
+		#mc-embedded-subscribe {
+			display: inline-block !important;
+			margin: 10px;
+			font-size: 18px;
+			line-height: 1.6;
+			padding: 14px 22px;
+		}
+		.email-input {
+			height: 24px;
+			vertical-align: middle;
+			width: 400px;
+		}
+		.sub-group .button {
+			color: #fff !important;
+			background-color: #2a3333 !important;
+			border: 0;
+			width: inherit !important;
+		}
+		#function, #action {
+			padding-top: 100px;
+			padding-bottom: 100px;
+			/*background-color: #333;
+			color: #ddd;
+			background-color: #f6f6f6;
+			color: #4d4d4d;*/
+			text-align: center;
+			font-size: 14px;
+		}
+		#function .pure-menu-link {
+			padding-left: 0.5em;
+			padding-right: 0.5em;
+			font-size: 16px;
+		}
+		.img-rounded {
+			border-radius: 6px;
+		}
+		hr.divider {
+			color: #ededed;
+			border-top: 1px dashed #aaa;
+		}
+		h3 {
+			font-weight: lighter;
+		}
+		.slider {
+			position: relative;
+			overflow: auto;
+			width: 100% !important;
+		}
+		.slider li {
+			list-style: none;
+		}
+		.slider ul li {
+			float: left;
+		}
+		.active>.pure-menu-link {
+			background-color: #eee;
+		}
+		.text-content {
+			position: absolute;
+			color: #888;
+			font-family: 'Century Gothic', sans-serif;
+		}
+		.text-content h3 {
+			color: initial;
+		}
+		.text-content h4 {
+			color: #8AC007;
+		}
+		.text-content .fa {
+			width: 26px;
+			text-align: center;
+		}
+		#show-css-preview:hover {
+			background-color: #eee;
+		}
+		#show-css-preview ~ .theme-preview {
+			margin-top: 60px;
+			-webkit-transition: 1s ease-in-out;
+			transition: 1s ease-in-out;
+		}
+		#show-css-preview:hover ~ .theme-preview {
+			margin-top: 500px;
+			-webkit-transition: 1s ease-in-out;
+			transition: 1s ease-in-out;
+		}
+		.css-preview {
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			vertical-align: middle;
+		}
+		#show-css-preview ~ .css-preview {
+			top: 500px;
+			-webkit-transition: 1s ease-in-out;
+			transition: 1s ease-in-out;
+		}
+		#show-css-preview:hover ~ .css-preview {
+			top: 60px;
+			-webkit-transition: 1s ease-in-out;
+			transition: 1s ease-in-out;
+		}
+		.addthis-smartlayers {
+			display: none;
+		}
+		.addthis-smartlayers.fade-in {
+			display: block;
+		}
+		.atss {
+			top: calc(50% - 130px);
+		}
+		.slider .slogon {
+			margin-top: -10px;
+		}
+		#action img{
+			vertical-align: text-top;
+			margin-top:40px;
+		}
+		.feedback {
+			position: relative;
+			width:300px;
+			display: inline-block;
+		}
+		.feedback textarea,
+		.feedback input {
+			border: 0;
+			border-bottom: 1px #d2d2d2 solid;
+			-webkit-transition: 0.15s ease-in-out;
+			transition: 0.15s ease-in-out;
+			background-color: transparent;
+			width:300px;
+			position: relative;
+			display: inline-block;
+			resize: none;
+			padding:2px;
+		}
+		.feedback textarea{
+			margin-top:50px;
+			height:30px;
+		}
+		.feedback input {
+			display: none;
+			margin-top:30px;
+		}
+		.feedback textarea:focus,
+		.feedback input:focus{
+			outline: none;
+			border-bottom: 2px #FFF solid;
+			-webkit-transition: 0.3s ease-in-out;
+			transition: 0.3s ease-in-out;
+		}
+		
+		.feedback.focused textarea,
+		.feedback:focus textarea {
+			box-shadow: none;
+			-webkit-transition: 0.3s ease-in-out;
+			transition: 0.3s ease-in-out;
+			height:120px;
+		}
+		::-webkit-input-placeholder { /* WebKit browsers */
+		    color:    #999;
+		}
+		#send-update{
+			display:none; 
+			border:1px solid white;
+			border-radius: 2px; 
+			width:80px; 
+			margin-top: 20px;
+			margin-right:-1px;
+		}
+		.feedback.focused #send-update,
+		.feedback.focused input {
+			display:inline-block; 
+		}
+		.feedback.focused #feedback-error{
+			display:none;
+		}
+		#feedback-error {
+			margin-right: 20px; 
+			display:inline-block;
+			color:#B6475D;
+		}
+		.feedback.focused #feedback-error:empty{
+			display: inline-block;
+			min-width: 194px;
+			text-align: left;
+			padding: 0;
+		}
+		.feedback.focused #feedback-error:empty:before{
+			content: 'powered by doorbell.io';
+			color: #ccc;
+			font-size:0.6em;
+		}
+
+		.patty:after, .patty:before {
+			content: '';
+			display: block;
+			width: 24px;
+			height: 4px;
+			position: absolute;
+			z-index: -1;
+			-moz-transition: all 0.3s;
+			-o-transition: all 0.3s;
+			-webkit-transition: all 0.3s;
+			transition: all 0.3s
+		}
+
+		.patty:before {
+			background: #333;
+		  -moz-transform: rotate(-45deg);
+		  -ms-transform: rotate(-45deg);
+		  -webkit-transform: rotate(-45deg);
+		  transform: rotate(-45deg);
+		}
+
+		.patty:after {
+			background: #333;
+			  -moz-transform: rotate(45deg);
+			  -ms-transform: rotate(45deg);
+			  -webkit-transform: rotate(45deg);
+			  transform: rotate(45deg);
+		}
+
+		#twitter-widget-0 {
+			margin-bottom: -6px;
+  			margin-right: 10px;
+		}
+
+		.scroll-down-div {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			color: #4d4d4d;;
+			cursor: pointer;
+			height: 32px;
+			font-size: 18px;
+		}
+
+		.windows-screen-img {
+			margin-top: 30px;
+			left:0;
+			right:0;
+			position:absolute;
+		    width:100%;
+		    text-align: center;
+		    display:block;
+		    cursor: default;
+		}
+
+		.windows-screen-img img:hover {
+			margin-top: 40px;
+		}
+
+		.windows-screen-img img {
+			width:80%; 
+			max-width: 800px; 
+			height:auto; 
+			margin-top:80px;
+			-webkit-transition: 1s ease-in-out;
+		    transition: 1s ease-in-out;
+		}

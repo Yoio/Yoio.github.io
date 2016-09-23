@@ -22,18 +22,129 @@
     <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
     <![endif]-->
     <script src="assets/js/videojs-ie8.min.js"></script>
-    <style>
-    body{background: #ccc;}
-    </style>
+	<style type="text/css">
+	body{
+		margin: 0;
+		background: url(assets/img/bg.jpg);
+		background-attachment: fixed;
+	}
+	.readable{
+		font-family:'Century Gothic',"Helvetica Neue",Helvetica,"Lucida Grande","Luxi Sans",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Micro Hei Mono","WenQuanYi Zen Hei","WenQuanYi Zen Hei Mono",LiGothicMed;
+	    font-weight: 200;
+	    /*color: rgba(255,255,255,.8);*/
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-hyphens: auto;
+	    -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	    hyphens: auto;
+	    background-image: -webkit-gradient(linear, 0 0, 2 bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(255, 255, 255, 1)));
+	    -webkit-background-clip: text;
+     	-webkit-text-fill-color: transparent;
+	}
+	p{text-align: center;}
+	.h3-size{
+		font-size: 2em;
+	}
+	.tv{
+		width: 80%;
+		margin: -20px auto;
+	}
+	.video-js{
+		width: 100%;
+		border-radius: 5px;
+    	box-shadow: 0px 0px 5px 2px #ccc;
+	}
+	#animated_div
+	{
+	width:60px;
+	background:#92B901;
+	color:#ffffff;
+	position:absolute;
+	font:14px '微软雅黑', Verdana, Arial, Helvetica, sans-serif;
+	padding:16px;
+	animation:animated_div 5s 1;
+	-moz-animation:animated_div 5s 1;
+	-webkit-animation:animated_div 5s 1;
+	-o-animation:animated_div 5s 1;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	}
+
+@keyframes animated_div
+	{
+	0%		{transform: rotate(0deg);left:100px;}
+	25%		{transform: rotate(20deg);left:100px;}
+	50%		{transform: rotate(0deg);left:680px;}
+	55%		{transform: rotate(0deg);left:680px;}
+	70%		{transform: rotate(0deg);left:680px;background:#1ec7e6;}
+	100%	{transform: rotate(-360deg);left:100px;}
+	}
+
+@-webkit-keyframes animated_div
+	{
+	0%		{-webkit-transform: rotate(0deg);left:100px;}
+	25%		{-webkit-transform: rotate(20deg);left:100px;}
+	50%		{-webkit-transform: rotate(0deg);left:680px;}
+	55%		{-webkit-transform: rotate(0deg);left:680px;}
+	70%		{-webkit-transform: rotate(0deg);left:680px;background:#1ec7e6;}
+	100%	{-webkit-transform: rotate(-360deg);left:100px;}
+	}
+
+@-moz-keyframes animated_div
+	{
+	0%   {-moz-transform: rotate(0deg);left:100px;}
+	25%  {-moz-transform: rotate(20deg);left:100px;}
+	50%  {-moz-transform: rotate(0deg);left:680px;}
+	55%  {-moz-transform: rotate(0deg);left:680px;}
+	70%  {-moz-transform: rotate(0deg);left:680px;background:#1ec7e6;}
+	100% {-moz-transform: rotate(-360deg);left:100px;}
+	}
+
+@-o-keyframes animated_div
+	{
+	0%   {transform: rotate(0deg);left:100px;}
+	25%  {transform: rotate(20deg);left:100px;}
+	50%  {transform: rotate(0deg);left:680px;}
+	55%  {transform: rotate(0deg);left:680px;}
+	70%  {transform: rotate(0deg);left:680px;background:#1ec7e6;}
+	100% {transform: rotate(-360deg);left:100px;}
+	}
+
+	@keyframes fade-in {  
+    0% {opacity: 0;}/*初始状态 透明度为0*/  
+    40% {opacity: 0;}/*过渡状态 透明度为0*/  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in {/*针对webkit内核*/  
+    0% {opacity: 0;}  
+    40% {opacity: 0;}  
+    100% {opacity: 1;}  
+}
+	.titleBar{width: 80%;margin: 0 auto;}
+	.titleBar h3{
+		margin-left: 98px;line-height: 76px;     
+		animation: fade-in;/*动画名称*/  
+    	animation-duration: 1.5s;/*动画持续时间*/  
+    	-webkit-animation:fade-in 1.5s;/*针对webkit内核*/ 
+    	animation-delay:6s;
+		-webkit-animation-delay:6s; 
+	}
+
+	</style>
   </head>
   <body>
-    <div class="container-fluid">
-    <video id="yoio-video" width="700" height="450"  class="video-js vjs-default-skin" >
+	<div class="titleBar">
+		<p id="animated_div">视频课程</p>
+		<h3 class="h3-size readable">Sublime Text前端开发插件Emmet</h3>
+	</div>
+    <div class="tv">
+    <video id="my-video" class="video-js" controls preload="auto" >
       <source
          src="http://123.56.239.227:8080/yoiohls/yoio.m3u8"
          type="application/x-mpegURL">
     </video>
     </div>
+    
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/videojs.js"></script>
     <script src="assets/js/videojs-contrib-hls.min.js"></script>

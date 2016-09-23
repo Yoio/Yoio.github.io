@@ -152,9 +152,10 @@
     <script>
     	$(document).ready(function(){
     		var player = videojs('yoio-video');
-		$('.tv').width(videojs('yoio-video_html5_api').videoWidth());
-		$('.tv').height(videojs('yoio-video_html5_api').videoHeight());
+		
+		//$('.tv').height(videojs('yoio-video_html5_api').videoHeight());
       		player.play();
+      		$('.tv').width(videojs('yoio-video_html5_api').videoWidth());
     	});
 
     </script>

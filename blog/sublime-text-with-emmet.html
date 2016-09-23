@@ -138,7 +138,7 @@
 		<h3 class="h3-size readable">Sublime Text前端开发插件Emmet</h3>
 	</div>
     <div class="tv">
-    <video id="yoio-video" class="video-js" width="100%" controls preload="auto"   data-setup="{}" >
+    <video id="yoio-video" class="video-js"  controls="controls"   data-setup="{}" >
       <source
          src="http://123.56.239.227:8080/yoiohls/yoio.m3u8"
          type="application/x-mpegURL">
@@ -151,6 +151,10 @@
     <script>
     	$(document).ready(function(){
     		var player = videojs('yoio-video');
+    		$(".yoio-video").onload( function() {
+		    this.videoWidth = $(".tv").width();
+		  });
+
       		player.play();
     	});
 

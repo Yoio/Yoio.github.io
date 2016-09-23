@@ -154,6 +154,15 @@
 	    -ms-hyphens: auto;
 	    hyphens: auto;
 	}
+		footer{background: #ccc;}
+	footer p{
+		color: #fff;
+		text-align: center;
+		padding: 20px;
+	}
+	footer p a{
+		color: #fff;
+	}
 	</style>
   </head>
   <body>
@@ -189,35 +198,35 @@
   <div role="tabpanel" class="tab-pane" id="profile">
   	在编辑器中输入缩写代码：ul>li*5 ，然后按下拓展键（默认为tab），即可得到代码片段：
   	<pre><code class="language-html">
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
   	</code></pre>
   	缩写代码：div>(header>ul>li*2>a)+footer>p
   	<pre><code class="language-html">
-<div>
-    <header>
-        <ul>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-        </ul>
-    </header>
-    <footer>
-        <p></p>
-    </footer>
-</div>
+&lt;div&gt;
+    &lt;header&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/header&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;
   	</code></pre>	
   	缩写代码：table>.row>.col
   	<pre><code class="language-html">
-<table>
-    <tr class="row">
-        <td class="col"></td>
-    </tr>
-</table>
+&lt;table&gt;
+    &lt;tr class=&quot;row&quot;&gt;
+        &lt;td class=&quot;col&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
   	</code></pre>		
   </div>
   <div role="tabpanel" class="tab-pane" id="messages">
@@ -241,6 +250,10 @@
 
 		</div>
 	</div>
+	
+	<footer>
+		<p>©<a href="mailto:yoio@3cto.net"> Yoio</a>	</p>
+	</footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/videojs.js"></script>
     <script src="assets/js/videojs-contrib-hls.min.js"></script>

@@ -146,10 +146,10 @@
 		<h3 class="h3-size readable">Sublime Text前端开发插件Emmet</h3>
 	</div>
     <div class="tv">
-    <video id="yoio-video" class="video-js" controls preload="auto"   data-setup="{}" >
-      <source
+    <video id="yoio-video" class="video-js" width="100%" controls preload="auto"   data-setup="{}" >
+      <!--<source
          src="http://123.56.239.227:8080/yoiohls/yoio.m3u8"
-         type="application/x-mpegURL">
+         type="application/x-mpegURL">-->
     </video>
     </div>
     
@@ -160,6 +160,8 @@
     	$(document).ready(function(){
     		var player = videojs('yoio-video');
       		player.play();
+      		myPlayer.src("http://123.56.239.227:8080/yoiohls/yoio.m3u8");  //重置video的src
+        	myPlayer.load("http://123.56.239.227:8080/yoiohls/yoio.m3u8");  //使video重新加载
     	});
 
     </script>

@@ -148,8 +148,11 @@
     <script src="assets/js/videojs.js"></script>
     <script src="assets/js/videojs-contrib-hls.min.js"></script>
     <script>
-      var player = videojs('yoio-video');
-      player.play();
+    	$(document).ready(function(){
+    		var player = videojs('yoio-video');
+      		player.play();
+    	});
+
     </script>
   </body>
 </html>

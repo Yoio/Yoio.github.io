@@ -130,7 +130,26 @@
     	animation-delay:6s;
 		-webkit-animation-delay:6s; 
 	}
+	.container-fluid{
+		margin-top: 38px;
+		background: #fff;
+	}
 
+	.content{
+		width: 80%;
+		margin: 20px auto;
+	}
+	.tab-pane{padding: 20px;}
+	.readable2{color: blue;margin-top: 20px;
+				font-family:'Century Gothic',"Helvetica Neue",Helvetica,"Lucida Grande","Luxi Sans",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Micro Hei Mono","WenQuanYi Zen Hei","WenQuanYi Zen Hei Mono",LiGothicMed;
+	    font-weight: 200;
+	    /*color: rgba(255,255,255,.8);*/
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-hyphens: auto;
+	    -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	    hyphens: auto;
+	}
 	</style>
   </head>
   <body>
@@ -146,16 +165,87 @@
     </video>
     </div>
     
+    
+    	<div class="container-fluid">
+		<div class="content">
+		  <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">课程内容</a></li>
+  <li role="presentation"><a href="#profile" role="tab" data-toggle="tab"><>代码</a></li>
+  <li role="presentation"><a href="#messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-bookmark"></span> 相关文档</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="home">
+  	
+  		<p>  Emmet的前身是大名鼎鼎的Zen coding，如果你从事Web前端开发的话，对该插件一定不会陌生。它使用仿CSS选择器的语法来生成代码，大大提高了HTML/CSS代码编写的速度。</p>
+  		
+  </div>
+  <div role="tabpanel" class="tab-pane" id="profile">
+  	在编辑器中输入缩写代码：ul>li*5 ，然后按下拓展键（默认为tab），即可得到代码片段：
+  	<pre><code class="language-html">
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+  	</code></pre>
+  	缩写代码：div>(header>ul>li*2>a)+footer>p
+  	<pre><code class="language-html">
+<div>
+    <header>
+        <ul>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </header>
+    <footer>
+        <p></p>
+    </footer>
+</div>
+  	</code></pre>	
+  	缩写代码：table>.row>.col
+  	<pre><code class="language-html">
+<table>
+    <tr class="row">
+        <td class="col"></td>
+    </tr>
+</table>
+  	</code></pre>		
+  </div>
+  <div role="tabpanel" class="tab-pane" id="messages">
+<ul><li>
+		<a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank">前端开发必备！Emmet使用手册</a></li>
+	<li>
+		<a href="http://docs.emmet.io/css-abbreviations/" target="_blank">Emmet CSS Documentation</a></li>
+	<li>
+		<a href="http://docs.emmet.io/cheat-sheet/" target="_blank">Emmet Cheat Sheet</a></li>
+	<li>
+		<a href="http://coding.smashingmagazine.com/2013/03/26/goodbye-zen-coding-hello-emmet/" target="_blank">Smashing Magazine Emmet Article</a></li>
+	<li>
+		<a href="http://webdesign.tutsplus.com/tutorials/applications/writing-turbo-charged-css-with-emmet/" target="_blank">Turbo-Charge Your CSS With Emmet</a></li>
+	<li>
+		<a href="http://coding.smashingmagazine.com/2013/03/26/goodbye-zen-coding-hello-emmet/" target="_blank">Goodbye, Zen Coding. Hello, Emmet!</a></li>
+	<li>
+		<a href="http://blog.teamtreehouse.com/using-emmet-speed-front-end-web-development" target="_blank">Using Emmet to Speed Up Front-End Web Development</a></li>
+</ul>
+  </div>
+</div>
+
+		</div>
+	</div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/videojs.js"></script>
     <script src="assets/js/videojs-contrib-hls.min.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script>
     	$(document).ready(function(){
     		var player = videojs('yoio-video');
 		
-		//$('.tv').height(videojs('yoio-video_html5_api').videoHeight());
       		player.play();
-      		$('.tv').width(videojs('yoio-video').videoWidth());
     	});
 
     </script>

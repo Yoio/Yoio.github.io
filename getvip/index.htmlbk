@@ -1,0 +1,48 @@
+<!doctype html>
+<!--[if lte IE 8]><html lang="zh" class="ie8"><![endif]-->
+<html>
+<head>
+  <title>全民VIP - 收费视频任性看</title>
+  <meta charset="utf-8">
+  <meta name="robots" content="all">
+  <meta name="author" content="Tencent-ISUX-BJ">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE, chrome=1">
+  <meta name="applicable-device" content="pc">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="keywords" content="全民VIP，共享vip视频，爱奇艺vip，腾讯视频vip，乐视vip">
+  <meta name="description" content="getvip.top极简模式，更多贴心功能等你发现~">
+  <link rel="dns-prefetch" href="https://getvip.top">
+  <link rel="Shortcut Icon" href="mac/icon_vip.png">
+  <link rel="Bookmark" href="mac/icon_vip.png">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="text/javascript">
+  eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('$(a).9(2(){$(\'#c\').b(2(){$(\'.8\').3();1 4=$(\'#6\').5();1 0=\'7://j.i.k.m/l/?e=\';$(\'#d\').f(\'h\',0+4);$(\'.g\').3()})});',23,23,'p|var|function|hide|u|val|getvip|http|bg|ready|document|click|start|player|v|attr|ctl|src|api|p2|47ks|webcloud|com'.split('|'),0,{}))
+
+  </script>
+
+</head>
+<body class="macqq">
+    <div class="bg">
+      <video src="http://oetkb9jru.bkt.clouddn.com/Strangers.mp4" muted="true" autoplay  width="100%" loop="true">
+
+      </video>
+    </div>
+    <iframe id="player" width="100%" height="600px" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+    <div class="ctl">
+      <input type="text" id="getvip" placeholder="请输入视频网址，支持各大视频平台，爱奇艺，腾讯视频，优酷等。。。">
+      <a id="start"  class="btn btn-5">播放</a>
+    </div>
+
+    <div class="copyright">
+      商务合作请联系Email：getvip.top@gmail.com
+    </div>
+    <div class="third">
+      <script src="https://s13.cnzz.com/z_stat.php?id=1262190186&web_id=1262190186" language="JavaScript"></script>
+    </div>
+
+</body>
+</html>
